@@ -58,6 +58,8 @@ kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 example-android-application = { id = "example.android.application", version = "unspecified" }
 example-android-library = { id = "example.android.library", version = "unspecified" }
 example-android-test = { id = "example.android.test", version = "unspecified" }
+example-databinding = { id = "example.databinding", version = "unspecified" }
+example-dynamic = { id = "example.dynamic", version = "unspecified" }
 
 
 
