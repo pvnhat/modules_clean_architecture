@@ -10,27 +10,33 @@ import androidx.annotation.StringRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.databinding.library.baseAdapters.BR
 import androidx.lifecycle.LiveData
+import java.lang.IllegalStateException
 
 abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment() {
     @get:LayoutRes
     abstract val fragmentLayout: Int
     abstract val viewModel: VM
-    protected var binding : VB? = null
-//    protected val appErrorHandler by inject<ErrorHandler>(named(APP_ERROR_HANDLER))
-//    protected val firebaseTracker by inject<EventTracker>(named(FIREBASE_TRACKER))
-//    protected val appViewModel: AppViewModel by sharedViewModel()
-//    protected val mainActivity by lazy { activity as? MainActivity }
+
+    private var _binding: VB? = null
+    protected val binding
+        get() = _binding ?: throw IllegalStateException("ViewDataBinding is not bound")
 
     final override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, fragmentLayout, container, false)
-        setupBindingVariables(binding!!)
-        binding!!.executePendingBindings()
-        return binding!!.root
+        _binding = DataBindingUtil.inflate(inflater, fragmentLayout, container, false)
+        setupBindingVariables(binding)
+        binding.executePendingBindings()
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 
     @CallSuper
@@ -42,7 +48,7 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
     }
 
     open fun handleError(throwable: Throwable?) {
-      //  appErrorHandler.proceed(this, throwable)
+        //  appErrorHandler.proceed(this, throwable)
     }
 
     /**

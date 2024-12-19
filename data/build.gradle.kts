@@ -32,6 +32,15 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain"))
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.gson)
+    implementation(libs.logging.interceptor)
+
+    implementation(libs.paging.runtime)
+    implementation(libs.security.crypto.ktx)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
