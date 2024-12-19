@@ -8,7 +8,7 @@ espressoCore = "3.6.1"
 appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.3"
-constraintlayout = "2.1.4"
+constraintlayout = "2.2.0"
 
 androidGradlePlugin = "7.4.2"
 androidxActivity = "1.6.1"
@@ -16,7 +16,7 @@ androidxComposeBom = "2023.03.00"
 androidxComposeCompiler = "1.4.3"
 androidxCore = "1.9.0"
 androidxHilt = "1.0.0"
-androidxLifecycle = "2.6.0"
+androidxLifecycle = "2.8.7"
 androidxNavigation = "2.5.3"
 androidxRoom = "2.5.0"
 androidxTestCore = "1.5.0"
@@ -24,8 +24,8 @@ androidxTestExt = "1.1.5"
 androidxTestRunner = "1.5.2"
 compose = "1.2.1"
 composeWear = "1.0.0"
-coroutines = "1.6.4"
-hilt = "2.45"
+coroutines = "1.9.0"
+hilt = "2.51.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -44,6 +44,7 @@ hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", vers
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 hilt-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 

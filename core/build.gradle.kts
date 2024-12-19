@@ -4,6 +4,10 @@ plugins {
 
 android {
     namespace = "com.example.core"
+
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
@@ -11,6 +15,11 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
+
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.test)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
