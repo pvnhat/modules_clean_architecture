@@ -3,7 +3,7 @@ import com.example.data.repository.local.api.SharedPrefApi
 import com.example.data.repository.local.api.helper.execute
 import com.example.data.repository.local.api.pref.PREF_USER_DATA
 import com.example.data.repository.local.api.pref.PREF_USER_TOKEN
-import com.sun.viblo.android.data.repository.remote.api.AccountApi
+import com.example.data.repository.remote.api.NoneAuthApi
 import com.example.data.repository.remote.api.helper.ApiConfig.AUTHORIZATION_TOKEN
 import com.example.data.repository.remote.api.helper.ApiConfig.BEARER
 import com.example.data.repository.remote.api.helper.execute
@@ -12,7 +12,6 @@ import com.example.data.repository.remote.api.request.GrantType
 import com.example.domain.error.ErrorEntity
 import com.example.data.repository.remote.error.ApiError
 import com.example.data.repository.remote.error.ExpiredTokenException
-import com.sun.viblo.android.shared.constant.ERR_INVALID_REQUEST
 import kotlinx.coroutines.runBlocking
 import okhttp3.Authenticator
 import okhttp3.Request
@@ -21,7 +20,7 @@ import okhttp3.Route
 
 @Suppress("ReturnCount")
 class TokenAuthenticator(
-    private val accountApi: AccountApi,
+    private val noneApi: NoneAuthApi,
     private val sharedPrefApi: SharedPrefApi
 ) : Authenticator {
     override fun authenticate(route: Route?, response: Response): Request? {
@@ -60,14 +59,16 @@ class TokenAuthenticator(
             return runBlocking {
                 try {
                     val oldRefreshToken = oldUserToken?.refreshToken.orEmpty()
-                    val newUserToken = accountApi.execute {
-                        requestAuthentication(
-                            AuthRequest(
-                                refreshToken = oldRefreshToken,
-                                grantType = GrantType.REFRESH_TOKEN.value
-                            )
-                        )
-                    }
+                    val newUserToken : UserToken = UserToken()
+                       // TODO refresh token
+//                        noneApi.execute {
+//                        requestAuthentication(
+//                            AuthRequest(
+//                                refreshToken = oldRefreshToken,
+//                                grantType = GrantType.REFRESH_TOKEN.value
+//                            )
+//                        )
+//                    }
                     sharedPrefApi.put(PREF_USER_TOKEN, newUserToken)
                     response.request.newBuilder()
                         .header(
@@ -76,7 +77,7 @@ class TokenAuthenticator(
                         ).build()
                 } catch (exception: ErrorEntity) {
                     if (exception is ApiError.HttpError &&
-                        (exception.errorResponse?. as? String) == ERR_INVALID_REQUEST
+                        (exception.errorResponse as? String) == ""
                     ) {
                         doOnRefreshTokenFailed()
                     }

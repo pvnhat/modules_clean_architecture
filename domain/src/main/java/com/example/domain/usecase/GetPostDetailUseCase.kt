@@ -1,9 +1,9 @@
 package com.example.domain.usecase
 
+import com.example.domain.entities.PostDetailModel
+import com.example.domain.interactor.input.BaseInput
 import com.example.domain.repository.PostRepository
-import com.sun.viblo.android.domain.entities.PostDetailModel
-import com.sun.viblo.android.domain.interactor.input.BaseInput
-import com.sun.viblo.android.domain.usecase.base.AsyncUseCase
+import com.example.domain.usecase.base.AsyncUseCase
 import javax.inject.Inject
 
 class GetPostDetailUseCase @Inject constructor(

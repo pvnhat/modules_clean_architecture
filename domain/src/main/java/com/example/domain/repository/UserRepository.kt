@@ -10,6 +10,5 @@ interface UserRepository {
 
     fun logOut()
 
-    fun logIn()
-
+    fun logIn(username: String, password:String)
 }

@@ -3,7 +3,7 @@ package com.example.data.repository.remote.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.domain.error.ErrorEntity
-import com.sun.viblo.android.data.repository.remote.api.response.BaseResponse
+import com.example.data.repository.remote.api.response.BaseResponse
 
 class CommonPagingSource<T : Any>(
     private val block: suspend (Int) -> BaseResponse<List<T>>

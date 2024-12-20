@@ -2,7 +2,7 @@ package com.example.data.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import com.sun.viblo.android.data.repository.remote.api.response.BaseResponse
+import com.example.data.repository.remote.api.response.BaseResponse
 
 data class PostDetail(
     @SerializedName("id")

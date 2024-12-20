@@ -3,10 +3,10 @@ package com.example.data.repository.remote
 import androidx.paging.PagingData
 import com.example.data.model.PostData
 import com.example.data.model.PostDetail
+import com.example.data.repository.remote.api.AuthApi
+import com.example.data.repository.remote.api.NoneAuthApi
 import com.example.data.repository.remote.api.helper.execute
 import com.example.data.repository.remote.paging.CommonPager
-import com.sun.viblo.android.data.repository.remote.api.AuthApi
-import com.sun.viblo.android.data.repository.remote.api.NoneAuthApi
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -17,10 +17,9 @@ class PostRemoteDataSource @Inject constructor(
 ) {
 
     fun getNewestPosts(limit: Int): Flow<PagingData<PostData>> {
-        return CommonPager<PostData>().execute(
-            block = { page ->
-                noneAuthApi.execute { getNewestPosts(page, limit = limit) }
-            }
+        return CommonPager<PostData>().execute(block = { page ->
+            noneAuthApi.execute { getNewestPosts(page, limit = limit) }
+        }
         )
     }
 

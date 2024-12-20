@@ -1,8 +1,8 @@
-package com.sun.viblo.android.domain.usecase
+package com.example.domain.usecase
 
 import com.example.domain.repository.UserRepository
-import com.sun.viblo.android.domain.usecase.base.EmptyInput
-import com.sun.viblo.android.domain.usecase.base.SyncUseCase
+import com.example.domain.usecase.base.EmptyInput
+import com.example.domain.usecase.base.SyncUseCase
 import javax.inject.Inject
 
 class LogOutUseCase @Inject constructor(

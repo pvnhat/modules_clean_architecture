@@ -25,7 +25,7 @@ class UserRepositoryImpl @Inject constructor(
         localDataSource.logOut()
     }
 
-    override fun logIn() {
-        // TODO later
+    override fun logIn(username: String, password: String) {
+        // TODO
     }
 }

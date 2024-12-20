@@ -1,19 +1,16 @@
-package com.sun.viblo.android.domain.usecase
+package com.example.domain.usecase
 
-import com.sun.viblo.android.data.repository.remote.api.request.AuthRequest
 import com.example.domain.interactor.input.BaseInput
-import com.sun.viblo.android.domain.usecase.base.AsyncUseCase
+import com.example.domain.repository.UserRepository
+import com.example.domain.usecase.base.AsyncUseCase
 import javax.inject.Inject
 
 class LoginUseCase @Inject constructor(
-    private val repository: AccountRepository,
-    private val notificationRepository: NotificationRepository
+    private val repository: UserRepository,
 ) : AsyncUseCase<LoginUseCase.Input, Unit>() {
-    data class Input(val loginRequest: AuthRequest) : BaseInput()
+    data class Input(val username: String, val password: String) : BaseInput()
 
     override suspend fun buildUseCase(input: Input) {
-        repository.login(input.loginRequest)
-        val fcmToken = notificationRepository.getFCMToken()
-        notificationRepository.updateFCMToken(fcmToken)
+        repository.logIn(input.username, input.password)
     }
 }

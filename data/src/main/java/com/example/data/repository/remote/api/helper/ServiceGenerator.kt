@@ -1,7 +1,7 @@
 package com.example.data.repository.remote.api.helper
 
+import com.example.data.BuildConfig
 import com.google.gson.Gson
-import com.sun.viblo.android.BuildConfig
 import okhttp3.Authenticator
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

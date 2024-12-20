@@ -3,7 +3,7 @@ package com.example.data.repository.remote.paging
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.sun.viblo.android.data.repository.remote.api.response.BaseResponse
+import com.example.data.repository.remote.api.response.BaseResponse
 import kotlinx.coroutines.flow.Flow
 
 class CommonPager<T : Any> {

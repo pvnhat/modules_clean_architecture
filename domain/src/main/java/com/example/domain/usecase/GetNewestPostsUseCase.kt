@@ -4,7 +4,7 @@ import androidx.paging.PagingData
 import com.example.domain.entities.PostModel
 import com.example.domain.interactor.input.BaseInput
 import com.example.domain.repository.PostRepository
-import com.sun.viblo.android.domain.usecase.base.FlowUseCase
+import com.example.domain.usecase.base.FlowUseCase
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

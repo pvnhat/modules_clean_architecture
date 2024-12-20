@@ -11,19 +11,19 @@ object ApiConfig {
     const val FLAVOR_PRD = "production"
 
     fun baseUrl(): String {
-        return BuildConfig.BASE_API_URL
+        return ""
     }
 
     fun getAccountBaseUrl(): String {
-        return BuildConfig.BASE_ACCOUNT_URL
+        return ""
     }
 
     fun getClientId(): String {
-        return BuildConfig.CLIENT_ID
+        return ""
     }
 
     fun getClientSecret(): String {
-        return BuildConfig.CLIENT_SECRET
+        return ""
     }
 
     fun getBearerToken(idToken: String?): String {

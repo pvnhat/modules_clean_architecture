@@ -1,4 +1,4 @@
-package com.sun.viblo.android.domain.usecase.base
+package com.example.domain.usecase.base
 
 import com.example.domain.interactor.input.BaseInput
 
