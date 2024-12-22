@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/post"
+    app:startDestination="@id/navPosts">
+
+    <fragment
+        android:id="@+id/navPosts"
+        android:name="com.example.clear_architecture_base.ui.screens.postlist.PostsFragment"
+        android:label="PostsFragment"
+        tools:layout="@layout/fragment_posts">
+
+        <action
+            android:id="@+id/actionToPostDetail"
+            app:destination="@+id/navPostDetail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navPostDetail"
+        android:name="com.example.clear_architecture_base.ui.screens.postdetail.PostDetailFragment"
+        android:label="PostDetailFragment"
+        tools:layout="@layout/fragment_post_detail" />
+
+</navigation>

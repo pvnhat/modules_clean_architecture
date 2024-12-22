@@ -1,5 +1,7 @@
 package com.example.data.repository.remote.api.helper
 
+import com.example.data.BuildConfig
+
 
 object ApiConfig {
     const val BASIC_AUTHORIZATION = "Authorization"
@@ -11,11 +13,7 @@ object ApiConfig {
     const val FLAVOR_PRD = "production"
 
     fun baseUrl(): String {
-        return ""
-    }
-
-    fun getAccountBaseUrl(): String {
-        return ""
+        return BuildConfig.BASE_API_URL
     }
 
     fun getClientId(): String {

@@ -13,7 +13,7 @@ class GetNewestPostsUseCase @Inject constructor(
 ) : FlowUseCase<GetNewestPostsUseCase.Input, PagingData<PostModel>>() {
     data class Input(val limit: Int = DEFAULT_ITEM_COUNT) : BaseInput()
 
-    override suspend fun buildUseCase(input: Input): Flow<PagingData<PostModel>> {
+    override fun buildUseCase(input: Input): Flow<PagingData<PostModel>> {
         return repository.getNewestPosts(input.limit)
     }
 

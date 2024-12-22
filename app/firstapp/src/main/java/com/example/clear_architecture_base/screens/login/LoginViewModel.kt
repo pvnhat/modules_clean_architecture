@@ -1,4 +1,4 @@
-package com.example.clear_architecture_base.ui.screens
+package com.example.clear_architecture_base.screens.login
 
 import com.example.clear_architecture_base.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

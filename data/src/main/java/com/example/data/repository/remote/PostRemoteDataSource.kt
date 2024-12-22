@@ -19,8 +19,7 @@ class PostRemoteDataSource @Inject constructor(
     fun getNewestPosts(limit: Int): Flow<PagingData<PostData>> {
         return CommonPager<PostData>().execute(block = { page ->
             noneAuthApi.execute { getNewestPosts(page, limit = limit) }
-        }
-        )
+        })
     }
 
     suspend fun getPostDetail(slug: String): PostDetail {

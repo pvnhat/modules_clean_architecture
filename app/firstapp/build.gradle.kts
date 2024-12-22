@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.example.android.application)
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -7,7 +8,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.clear_architecture_base"
+        applicationId = "com.example.firstapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -17,6 +18,7 @@ android {
     }
 
     buildFeatures {
+        dataBinding = true
         buildConfig = true
     }
 
@@ -36,6 +38,20 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    flavorDimensions.add("default")
+
+    productFlavors {
+        create("develop") {
+            applicationIdSuffix = ".test"
+        }
+        create("uat") {
+            applicationIdSuffix = ".uat"
+        }
+        create("product") {
+
+        }
+    }
 }
 
 dependencies {
@@ -48,6 +64,17 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.hilt.navigation.fragment)
+
+    implementation(libs.paging.runtime)
+
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.test)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
