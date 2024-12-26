@@ -6,9 +6,6 @@ import com.example.data.repository.local.api.pref.PREF_USER_TOKEN
 import com.example.data.repository.remote.api.NoneAuthApi
 import com.example.data.repository.remote.api.helper.ApiConfig.AUTHORIZATION_TOKEN
 import com.example.data.repository.remote.api.helper.ApiConfig.BEARER
-import com.example.data.repository.remote.api.helper.execute
-import com.example.data.repository.remote.api.request.AuthRequest
-import com.example.data.repository.remote.api.request.GrantType
 import com.example.domain.error.ErrorEntity
 import com.example.data.repository.remote.error.ApiError
 import com.example.data.repository.remote.error.ExpiredTokenException
@@ -18,7 +15,6 @@ import okhttp3.Request
 import okhttp3.Response
 import okhttp3.Route
 
-@Suppress("ReturnCount")
 class TokenAuthenticator(
     private val noneApi: NoneAuthApi,
     private val sharedPrefApi: SharedPrefApi

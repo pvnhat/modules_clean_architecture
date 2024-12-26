@@ -94,3 +94,4 @@ example-android-library = { id = "example.android.library", version = "unspecifi
 example-android-test = { id = "example.android.test", version = "unspecified" }
 example-databinding = { id = "example.databinding", version = "unspecified" }
 example-dynamic = { id = "example.dynamic", version = "unspecified" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
