@@ -21,8 +21,10 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "clear_architecture_base"
-include(":secondapp")
-include(":firstapp")
+include(":app:secondapp")
+include(":app:firstapp")
 include(":core")
 include(":data")
 include(":domain")
+include(":shared")
+include(":app")

@@ -31,10 +31,6 @@ gradlePlugin {
             id = "example.android.test"
             implementationClass = "AndroidTestConventionPlugin"
         }
-        register("sampleDataBinding") {
-            id = "example.databinding"
-            implementationClass = "DataBindingConventionPlugin"
-        }
         register("sampleDynamic") {
             id = "example.dynamic"
             implementationClass = "DynamicFeatureConventionPlugin"

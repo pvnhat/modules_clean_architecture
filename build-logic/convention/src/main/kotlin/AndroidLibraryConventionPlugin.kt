@@ -15,6 +15,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 apply("dagger.hilt.android.plugin")
                 apply("org.jetbrains.kotlin.android")
                 apply("org.jetbrains.kotlin.kapt")
+                apply("kotlin-kapt")
             }
 
             extensions.configure<LibraryExtension> {
