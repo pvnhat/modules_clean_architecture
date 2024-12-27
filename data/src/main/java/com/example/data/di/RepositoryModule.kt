@@ -1,8 +1,8 @@
 package com.example.data.di
 
-import com.example.data.repository.PostRepositoryImpl
+import com.example.data.repository.MovieRepositoryImpl
 import com.example.data.repository.UserRepositoryImpl
-import com.example.domain.repository.PostRepository
+import com.example.domain.repository.MovieRepository
 import com.example.domain.repository.UserRepository
 import dagger.Binds
 import dagger.Module
@@ -16,5 +16,5 @@ abstract class RepositoryModule {
     abstract fun provideUserRepository(userRepositoryImpl: UserRepositoryImpl): UserRepository
 
     @Binds
-    abstract fun providePostRepository(postRepositoryImpl: PostRepositoryImpl): PostRepository
+    abstract fun providePostRepository(movieRepositoryImpl: MovieRepositoryImpl): MovieRepository
 }

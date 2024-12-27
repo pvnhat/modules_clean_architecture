@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.secondapp.screens.login.LoginViewModel" />
+            type="com.example.clear_architecture_base.secondapp.screens.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

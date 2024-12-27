@@ -2,7 +2,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "com.example.clear_architecture_base"
+group = "com.example.clear_architecture_base.buildlogic"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17

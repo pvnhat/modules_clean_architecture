@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.domain"
+    namespace = "com.example.clear_architecture_base.domain"
     compileSdk = 34
 
     defaultConfig {

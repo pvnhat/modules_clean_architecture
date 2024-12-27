@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.shared"
+    namespace = "com.example.clear_architecture_base.shared"
     compileSdk = 34
 
     defaultConfig {

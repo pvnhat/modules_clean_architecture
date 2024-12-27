@@ -2,11 +2,12 @@ package com.example.data.repository.remote.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.example.data.repository.remote.api.response.BaseListResponse
 import com.example.domain.error.ErrorEntity
-import com.example.data.repository.remote.api.response.BaseResponse
+import com.example.shared.utils.extensions.orZero
 
 class CommonPagingSource<T : Any>(
-    private val block: suspend (Int) -> BaseResponse<List<T>>
+    private val block: suspend (Int) -> BaseListResponse<T>
 ) : PagingSource<Int, T>() {
 
     override fun getRefreshKey(state: PagingState<Int, T>): Int? {
@@ -18,10 +19,10 @@ class CommonPagingSource<T : Any>(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, T> {
         return try {
-            val page = params.key ?: 1
-            val response = block.invoke(page)
-            val totalPage = response.meta?.pagination?.totalPages ?: 0
-            val nextPage = if (page + 1 <= totalPage) page + 1 else null
+            val currentPage = params.key ?: 1
+            val response = block.invoke(currentPage)
+            val totalPage = response.totalPages.orZero()
+            val nextPage = if (currentPage + 1 <= totalPage) currentPage + 1 else null
             LoadResult.Page(
                 data = response.data,
                 prevKey = null,

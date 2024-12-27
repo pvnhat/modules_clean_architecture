@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.clear_architecture_base"
+    namespace = "com.example.clear_architecture_base.app.firstapp"
     compileSdk = 35
 
     defaultConfig {
