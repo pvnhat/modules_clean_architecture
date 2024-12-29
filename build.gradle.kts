@@ -19,4 +19,39 @@ plugins {
     alias(libs.plugins.example.dynamic) apply false
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.kotlin.android) apply false
+
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.ktlint)
+}
+
+detekt {
+    toolVersion = "1.23.6"
+
+    source.setFrom(
+        files(
+            "app/src/main/java"
+        )
+    )
+    parallel = false
+    config.setFrom(files("detekt-config.yml"))
+    buildUponDefaultConfig = false
+    disableDefaultRuleSets = false
+
+    debug = false
+    ignoreFailures = false
+
+    ignoredBuildTypes = listOf("release")
+    ignoredFlavors = listOf("production")
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    jvmTarget = JavaVersion.VERSION_17.toString()
+    reports {
+        xml {
+            outputLocation.set(file("build/reports/detekt/detekt.xml"))
+        }
+        html {
+            outputLocation.set(file("build/reports/detekt/detekt.html"))
+        }
+    }
 }
