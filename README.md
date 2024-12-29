@@ -3,8 +3,6 @@
 
 2 Android Apps that use the same core logic, featuring Clean Architecture, Kotlin.
 
-![image](https://github.com/AliAsadi/Android-Clean-Architecture/assets/20803775/afc6c445-8a0d-4cdc-a2de-0672be74c04a)
-
 # Features
 
 1. **Login**
