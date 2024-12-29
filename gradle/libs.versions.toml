@@ -15,6 +15,9 @@ securityCrypto = "1.1.0-alpha06"
 material = "1.12.0"
 activity = "1.9.3"
 
+ktlintPlugin = "12.1.1"
+detekt = "1.23.6"
+
 retrofit = "2.11.0"
 gson = "2.10.1"
 paging = "3.3.5"
@@ -101,3 +104,6 @@ example-android-test = { id = "example.android.test", version = "unspecified" }
 example-databinding = { id = "example.databinding", version = "unspecified" }
 example-dynamic = { id = "example.dynamic", version = "unspecified" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlintPlugin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
