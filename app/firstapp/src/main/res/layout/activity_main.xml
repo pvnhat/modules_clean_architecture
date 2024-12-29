@@ -3,7 +3,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.clear_architecture_base.screens.MainViewModel" />
+            type="com.example.clear_architecture_base.firstapp.screens.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

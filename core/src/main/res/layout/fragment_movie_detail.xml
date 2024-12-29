@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.clear_architecture_base.ui.screens.moviedetail.MovieDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/moviePosterImageView"
+            loadUrl="@{viewModel.movie.backdropPath}"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_280"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBack"
+            style="@style/basicButton"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            app:cornerRadius="@dimen/dp_20"
+            app:iconSize="@dimen/dp_24"
+            app:iconGravity="start"
+            android:layout_margin="@dimen/dp_16"
+            app:icon="@drawable/ic_back"
+            app:iconTint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:backgroundTint="@color/white_50" />
+
+        <TextView
+            android:id="@+id/tvMovieTitle"
+            style="@style/textBold24"
+            android:layout_width="0dp"
+            android:layout_margin="@dimen/dp_16"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{viewModel.movie.title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/moviePosterImageView"
+            tools:text="Movie Title" />
+
+        <TextView
+            android:id="@+id/tvGenres"
+            style="@style/textBold14"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/dp_16"
+            android:background="@color/secondaryContainer"
+            android:padding="@dimen/dp_8"
+            android:text="@{@string/genres_(viewModel.movie.genresStr)}"
+            app:layout_constraintTop_toBottomOf="@+id/tvMovieTitle" />
+
+        <TextView
+            android:id="@+id/tvOverview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_12"
+            android:ellipsize="end"
+            android:maxLines="6"
+            android:text="@{viewModel.movie.overview}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvGenres"
+            tools:text="Movie overview goes here. This is a brief summary of the movie's plot and highlights key points about the story." />
+
+        <LinearLayout
+            android:id="@+id/runtimeReleaseDateLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvOverview">
+
+            <TextView
+                style="@style/text14"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:text="@{@string/runtime_s(viewModel.movie.lengthFormatted)}"
+                tools:text="Release Date: 2024-12-31" />
+
+            <TextView
+                style="@style/text14"
+                android:text="@{@string/release_date_(viewModel.movie.releaseDate)}"
+                tools:text="Release Date: 2024-12-31" />
+        </LinearLayout>
+
+        <ProgressBar
+            isVisible="@{viewModel.loading}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

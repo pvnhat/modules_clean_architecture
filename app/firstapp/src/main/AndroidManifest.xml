@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".FistApp"
+        android:name="com.example.clear_architecture_base.firstapp.FistApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Clear_architecture_base"
         tools:targetApi="31">
         <activity
-            android:name=".screens.MainActivity"
+            android:name="com.example.clear_architecture_base.firstapp.screens.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

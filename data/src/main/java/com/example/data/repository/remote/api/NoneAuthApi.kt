@@ -1,16 +1,14 @@
 package com.example.data.repository.remote.api
 
-import com.example.data.model.PostData
-import com.example.data.repository.remote.api.response.BaseResponse
+import com.example.data.model.UserToken
+import com.example.data.repository.remote.api.request.TokenRequest
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.POST
 
-@Suppress("TooManyFunctions", "LargeClass", "LongParameterList")
 interface NoneAuthApi {
-    @GET("posts/newest")
-    suspend fun getNewestPosts(
-        @Query("page") page: Int,
-        @Query("limit") limit: Int
-    ): BaseResponse<List<PostData>>
+    @POST("login")
+    suspend fun login(username: String, password: String): UserToken
 
+    @POST("refresh_token")
+    suspend fun refreshToken(request: TokenRequest): UserToken
 }

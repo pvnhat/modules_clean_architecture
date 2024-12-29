@@ -4,11 +4,10 @@ import com.example.data.repository.local.api.helper.execute
 import com.example.data.repository.local.api.pref.PREF_USER_DATA
 import com.example.data.repository.local.api.pref.PREF_USER_TOKEN
 import com.example.data.repository.remote.api.NoneAuthApi
-import com.example.data.repository.remote.api.helper.ApiConfig.AUTHORIZATION_TOKEN
+import com.example.data.repository.remote.api.helper.ApiConfig.AUTHORIZATION
 import com.example.data.repository.remote.api.helper.ApiConfig.BEARER
 import com.example.data.repository.remote.api.helper.execute
-import com.example.data.repository.remote.api.request.AuthRequest
-import com.example.data.repository.remote.api.request.GrantType
+import com.example.data.repository.remote.api.request.TokenRequest
 import com.example.domain.error.ErrorEntity
 import com.example.data.repository.remote.error.ApiError
 import com.example.data.repository.remote.error.ExpiredTokenException
@@ -18,7 +17,6 @@ import okhttp3.Request
 import okhttp3.Response
 import okhttp3.Route
 
-@Suppress("ReturnCount")
 class TokenAuthenticator(
     private val noneApi: NoneAuthApi,
     private val sharedPrefApi: SharedPrefApi
@@ -48,7 +46,7 @@ class TokenAuthenticator(
                 return if (syncedUserToken != null) {
                     response.request.newBuilder()
                         .header(
-                            AUTHORIZATION_TOKEN,
+                            AUTHORIZATION,
                             "$BEARER ${syncedUserToken.accessToken}"
                         ).build()
                 } else {
@@ -59,20 +57,13 @@ class TokenAuthenticator(
             return runBlocking {
                 try {
                     val oldRefreshToken = oldUserToken?.refreshToken.orEmpty()
-                    val newUserToken : UserToken = UserToken()
-                       // TODO refresh token
-//                        noneApi.execute {
-//                        requestAuthentication(
-//                            AuthRequest(
-//                                refreshToken = oldRefreshToken,
-//                                grantType = GrantType.REFRESH_TOKEN.value
-//                            )
-//                        )
-//                    }
+                    val newUserToken = noneApi.execute {
+                        refreshToken(TokenRequest(oldRefreshToken))
+                    }
                     sharedPrefApi.put(PREF_USER_TOKEN, newUserToken)
                     response.request.newBuilder()
                         .header(
-                            AUTHORIZATION_TOKEN,
+                            AUTHORIZATION,
                             "$BEARER ${newUserToken.accessToken}"
                         ).build()
                 } catch (exception: ErrorEntity) {

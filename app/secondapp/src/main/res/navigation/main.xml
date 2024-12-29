@@ -6,12 +6,12 @@
     android:id="@+id/main">
 
     <include
-        app:graph="@navigation/post"
+        app:graph="@navigation/movie"
         android:id="@+id/post" />
 
     <fragment
         android:id="@+id/navLogin"
-        android:name="com.example.secondapp.screens.login.LoginFragment"
+        android:name="com.example.clear_architecture_base.secondapp.screens.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
 

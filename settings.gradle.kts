@@ -27,4 +27,5 @@ include(":core")
 include(":data")
 include(":domain")
 include(":shared")
-include(":app")
+include(":libs")
+

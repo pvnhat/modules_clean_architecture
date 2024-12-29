@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.data"
+    namespace = "com.example.clear_architecture_base.data"
 
     buildFeatures {
         buildConfig = true
@@ -16,21 +16,21 @@ android {
             buildConfigField(
                 "String",
                 "BASE_API_URL",
-                "\"https://api.test.com/\""
+                "\"https://api.themoviedb.org/\""
             )
         }
         create("uat") {
             buildConfigField(
                 "String",
                 "BASE_API_URL",
-                "\"https://api.test.com/\""
+                "\"https://api.themoviedb.org/\""
             )
         }
         create("product") {
             buildConfigField(
                 "String",
                 "BASE_API_URL",
-                "\"https://api.test.com/\""
+                "\"https://api.themoviedb.org/\""
             )
         }
     }
@@ -38,7 +38,9 @@ android {
 
 dependencies {
     implementation(project(":domain"))
+    implementation(project(":shared"))
 
+    implementation(libs.androidx.core.ktx)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.gson)
@@ -47,9 +49,6 @@ dependencies {
     implementation(libs.paging.runtime)
     implementation(libs.security.crypto.ktx)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

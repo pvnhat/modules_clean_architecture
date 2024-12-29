@@ -1,15 +1,14 @@
 package com.example.data.repository.remote.api.helper
 
-import com.example.data.BuildConfig
+import com.example.clear_architecture_base.data.BuildConfig
 
 
 object ApiConfig {
-    const val BASIC_AUTHORIZATION = "Authorization"
-    const val AUTHORIZATION_TOKEN = "X-Api-Authorization"
+    const val AUTHORIZATION = "Authorization"
     const val ANDROID_PLATFORM = "android"
     const val BEARER = "Bearer"
     const val FLAVOR_DEV = "develop"
-    const val FLAVOR_STG = "staging"
+    const val FLAVOR_STG = "uat"
     const val FLAVOR_PRD = "production"
 
     fun baseUrl(): String {

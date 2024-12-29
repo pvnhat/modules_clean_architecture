@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--    Text styles-->
+    <style name="basicText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="text16" parent="basicText">
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="text24" parent="basicText">
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+
+    <style name="text14" parent="basicText">
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="text12" parent="basicText">
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="textBold16" parent="text16">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textBold24" parent="text24">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textBold14" parent="text14">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textBold12" parent="text12">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+<!--    Button styles-->
+    <style name="basicButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:insetTop">@dimen/dp_0</item>
+        <item name="android:insetBottom">@dimen/dp_0</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="rippleColor">@color/silver</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="cornerRadius">@dimen/dp_6</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="minHeight">@dimen/dp_0</item>
+    </style>
+</resources>
