@@ -6,7 +6,7 @@
     android:id="@+id/main">
 
     <include
-        app:graph="@navigation/post"
+        app:graph="@navigation/movie"
         android:id="@+id/post" />
 
     <fragment

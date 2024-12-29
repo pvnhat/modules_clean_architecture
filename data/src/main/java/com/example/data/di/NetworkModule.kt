@@ -6,7 +6,6 @@ import com.example.data.repository.remote.api.AuthApi
 import com.example.data.repository.remote.api.NoneAuthApi
 import com.example.data.repository.remote.api.helper.ApiConfig
 import com.example.data.repository.remote.api.helper.ServiceGenerator
-import com.example.data.repository.remote.api.middleware.AccountInterceptor
 import com.example.data.repository.remote.api.middleware.AuthInterceptor
 import com.example.data.repository.remote.api.middleware.BasicAuthInterceptor
 import com.google.gson.Gson
@@ -31,12 +30,6 @@ class NetworkModule {
     @Singleton
     fun provideBasicAuthInterceptor(): BasicAuthInterceptor {
         return BasicAuthInterceptor()
-    }
-
-    @Provides
-    @Singleton
-    fun provideAccountInterceptor(): AccountInterceptor {
-        return AccountInterceptor()
     }
 
     @Provides

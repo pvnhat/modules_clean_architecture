@@ -5,12 +5,9 @@ plugins {
 
 android {
     namespace = "com.example.secondapp"
-    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.clear_architecture_base.app.secondapp"
-        minSdk = 24
-        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -30,13 +27,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
     }
 
     flavorDimensions.add("default")
@@ -59,6 +49,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":data"))
     implementation(project(":domain"))
+    implementation(project(":shared"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

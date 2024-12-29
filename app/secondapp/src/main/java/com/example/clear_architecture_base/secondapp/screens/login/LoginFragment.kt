@@ -14,9 +14,17 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
     override val fragmentLayout: Int = R.layout.fragment_login
     override val viewModel: LoginViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.btnNext.setOnClickListener {
+    override fun handleEvents() {
+        binding.btnLogin.setOnClickListener {
+            viewModel.login(
+                binding.edtEmail.text.toString(),
+                binding.edtPassword.text.toString()
+            )
+        }
+    }
+
+    override fun observes() {
+        defaultObserve(viewModel.loginState) {
             findNavControllerSafely()?.navigate(LoginFragmentDirections.actionToPost())
         }
     }

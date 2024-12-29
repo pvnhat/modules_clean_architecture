@@ -4,7 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.data.repository.remote.api.response.BaseListResponse
 import com.example.domain.error.ErrorEntity
-import com.example.shared.utils.extensions.orZero
+import com.example.clear_architecture_base.shared.utils.extensions.orZero
 
 class CommonPagingSource<T : Any>(
     private val block: suspend (Int) -> BaseListResponse<T>

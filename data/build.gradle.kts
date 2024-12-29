@@ -40,6 +40,7 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":shared"))
 
+    implementation(libs.androidx.core.ktx)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.gson)
@@ -48,9 +49,6 @@ dependencies {
     implementation(libs.paging.runtime)
     implementation(libs.security.crypto.ktx)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

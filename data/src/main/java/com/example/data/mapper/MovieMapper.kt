@@ -10,7 +10,7 @@ class MovieMapper @Inject constructor(
     override fun map(data: MovieData): MovieModel {
         return MovieModel(
             adult = data.adult,
-            backdropPath = data.backdropPath,
+            backdropPath = data.backdropUrl,
             belongsToCollection = data.belongsToCollection,
             budget = data.budget,
             genreIds = data.genreIds,
@@ -23,7 +23,7 @@ class MovieMapper @Inject constructor(
             originalTitle = data.originalTitle,
             overview = data.overview,
             popularity = data.popularity,
-            posterPath = data.posterPath,
+            posterPath = data.posterUrl,
             releaseDate = data.releaseDate,
             revenue = data.revenue,
             runtime = data.runtime,

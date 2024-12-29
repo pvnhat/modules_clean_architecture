@@ -5,7 +5,7 @@ import org.gradle.api.JavaVersion
 
 internal fun configureAndroid(commonExtension: CommonExtension<*, *, *, *, *, *>) {
     commonExtension.apply {
-        compileSdk = 34
+        compileSdk = 35
 
         defaultConfig {
             minSdk = 24
@@ -13,8 +13,8 @@ internal fun configureAndroid(commonExtension: CommonExtension<*, *, *, *, *, *>
         }
 
         compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
+            sourceCompatibility = JavaVersion.VERSION_21
+            targetCompatibility = JavaVersion.VERSION_21
         }
     }
 }

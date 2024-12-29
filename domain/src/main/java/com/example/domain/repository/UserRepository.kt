@@ -5,5 +5,5 @@ interface UserRepository {
 
     fun logOut()
 
-    fun logIn(username: String, password:String)
+    suspend fun logIn(username: String, password:String)
 }

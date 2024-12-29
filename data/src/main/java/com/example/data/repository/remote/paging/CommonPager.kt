@@ -3,8 +3,8 @@ package com.example.data.repository.remote.paging
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.example.clear_architecture_base.shared.utils.DEFAULT_PAGE_ITEMS_COUNT
 import com.example.data.repository.remote.api.response.BaseListResponse
-import com.example.shared.utils.DEFAULT_PAGE_ITEMS_COUNT
 import kotlinx.coroutines.flow.Flow
 
 class CommonPager<T : Any> {

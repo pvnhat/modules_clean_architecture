@@ -25,4 +25,16 @@ data class MovieModel(
     val video: Boolean? = null,
     val voteAverage: Double? = null,
     val voteCount: Int? = null,
-) : BaseModel()
+) : BaseModel() {
+    fun getGenresStr(): String {
+        return genres?.joinToString { it.name.orEmpty() }.orEmpty()
+    }
+
+    val lengthFormatted: String
+        get() = MOVIE_LENGTH_FORMAT.format((runtime ?: 0) / 60, (runtime ?: 0) % 60)
+
+    companion object {
+        private const val MOVIE_LENGTH_FORMAT = "%dh %dm"
+        private const val RATING_FORMAT = "%.1f/10 IMDB"
+    }
+}

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">clear_architecture_base</string>
+    <string name="genres_">Genres: %s</string>
+    <string name="release_date_">Release Date: %s</string>
+    <string name="over_view_">Overview: %s</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="runtime_s">Runtime: %s</string>
 </resources>

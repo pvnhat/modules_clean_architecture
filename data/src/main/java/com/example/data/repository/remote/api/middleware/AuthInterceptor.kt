@@ -12,7 +12,7 @@ class AuthInterceptor(private val sharedPrefApi: SharedPrefApi) : Interceptor {
         val originalRequest = chain.request()
         val newRequestBuilder = originalRequest.newBuilder()
         newRequestBuilder.header(
-            ApiConfig.AUTHORIZATION_TOKEN,
+            ApiConfig.AUTHORIZATION,
             ApiConfig.getBearerToken(
                 sharedPrefApi.get(
                     PREF_USER_TOKEN,
