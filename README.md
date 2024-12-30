@@ -1,7 +1,7 @@
 
 # Android Modules Clean Architecture [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3e9bbcba7b3945f4b9ba0887b8639a00)](https://app.codacy.com/gh/AliAsadi/Android-Clean-Architecture?utm_source=github.com&utm_medium=referral&utm_content=AliAsadi/Android-Clean-Architecture&utm_campaign=Badge_Grade_Settings)
 
-2 Android Apps that use the same core logic, featuring Clean Architecture, Kotlin.
+Two Android Apps that use the same core logic, featuring Clean Architecture, Kotlin.
 
 # Features
 
@@ -16,8 +16,18 @@
 Both apps have two variants: **develop**, **uat**, and **product**.
 ![image](screenshots/build-variants.png)
 
-## The Motivation behind the app
-This repository was created with the intention of sharing knowledge and using it to implement new challenges and ideas.
+## Getting Started
+### Build Environments  
+
+- Android Studio latest version
+- Java JDK: 21
+
+### Steps:
+
+1. Open terminal: ```git clone git@github.com:pvnhat/modules_clean_architecture.git```
+2. Sync gradle 
+3. Select Build variant & select app
+4. Run on device
 
 ## Movies Mock Server API
 
