@@ -1,6 +1,18 @@
 plugins {
     alias(libs.plugins.example.android.application)
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.ktlint)
     id("androidx.navigation.safeargs.kotlin")
+}
+
+ktlint {
+    verbose.set(true)
+    android.set(true)
+    outputToConsole.set(true)
+}
+
+buildscript {
+    apply(from = "$rootDir/team-props/git-hooks.gradle.kts")
 }
 
 android {
@@ -40,7 +52,6 @@ android {
             applicationIdSuffix = ".uat"
         }
         create("product") {
-
         }
     }
 }
