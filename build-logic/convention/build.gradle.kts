@@ -35,5 +35,9 @@ gradlePlugin {
             id = "example.dynamic"
             implementationClass = "DynamicFeatureConventionPlugin"
         }
+        register("localCI") {
+            id = "example.local.ci"
+            implementationClass = "LocalCIConventionPlugin"
+        }
     }
 }
