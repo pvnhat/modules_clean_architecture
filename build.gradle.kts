@@ -29,11 +29,13 @@ detekt {
 
     source.setFrom(
         files(
-            "app/src/main/java"
+            "app/firstapp/src/main/java",
+            "app/secondapp/src/main/java",
+            "core/src/main/java"
         )
     )
     parallel = false
-    config.setFrom(files("detekt-config.yml"))
+    config.setFrom(files("$rootDir/detekt-config.yml"))
     buildUponDefaultConfig = false
     disableDefaultRuleSets = false
 

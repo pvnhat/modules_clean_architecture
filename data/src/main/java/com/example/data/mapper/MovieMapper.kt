@@ -5,7 +5,7 @@ import com.example.domain.entities.MovieModel
 import javax.inject.Inject
 
 class MovieMapper @Inject constructor(
-    private val genreMapper: GenreMapper,
+    private val genreMapper: GenreMapper
 ) : DataMapper<MovieData, MovieModel>() {
     override fun map(data: MovieData): MovieModel {
         return MovieModel(

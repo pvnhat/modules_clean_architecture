@@ -9,11 +9,11 @@ import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.fragment.app.Fragment
 import androidx.databinding.library.baseAdapters.BR
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
-import java.lang.IllegalStateException
 
+@Suppress("TooManyFunctions")
 abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment() {
     @get:LayoutRes
     abstract val fragmentLayout: Int
@@ -21,7 +21,7 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
 
     private var _binding: VB? = null
     protected val binding
-        get() = _binding ?: throw IllegalStateException("ViewDataBinding is not bound")
+        get() = _binding ?: checkNotNull(_binding) { "ViewDataBinding is not bound" }
 
     final override fun onCreateView(
         inflater: LayoutInflater,
@@ -110,8 +110,9 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
         }
     }
 
+    @Suppress("UnusedParameter")
     fun showSnackBarError(@StringRes errorRes: Int) {
-        //activity.showSnackbar(getString(errorRes))
+        // activity.showSnackbar(getString(errorRes))
     }
 
     companion object {

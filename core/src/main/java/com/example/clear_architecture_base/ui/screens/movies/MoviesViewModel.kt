@@ -10,6 +10,6 @@ import javax.inject.Inject
 @HiltViewModel
 class MoviesViewModel @Inject constructor(
     getPopularMoviesUseCase: GetPopularMoviesUseCase
-): BaseViewModel() {
+) : BaseViewModel() {
     val posts = getPopularMoviesUseCase(EmptyInput()).cachedIn(scope)
 }

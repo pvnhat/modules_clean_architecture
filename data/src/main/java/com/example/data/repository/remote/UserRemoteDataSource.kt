@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class UserRemoteDataSource @Inject constructor(
     private val authApi: AuthApi,
-    private val noneAuthApi: NoneAuthApi,
+    private val noneAuthApi: NoneAuthApi
 ) {
 
     suspend fun login(username: String, password: String): UserToken {

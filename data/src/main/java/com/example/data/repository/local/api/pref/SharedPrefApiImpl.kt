@@ -5,9 +5,9 @@ import android.content.SharedPreferences
 import android.util.Log
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
+import com.example.data.repository.local.api.SharedPrefApi
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.example.data.repository.local.api.SharedPrefApi
 
 class SharedPrefApiImpl(context: Context, private val gson: Gson) : SharedPrefApi {
     private val sharedPreferences by lazy {

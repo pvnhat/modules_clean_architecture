@@ -3,7 +3,6 @@ package com.example.data.mapper
 import com.example.data.model.BaseData
 import com.example.domain.entities.BaseModel
 
-
 abstract class DataMapper<T : BaseData, R : BaseModel> {
     abstract fun map(data: T): R
 

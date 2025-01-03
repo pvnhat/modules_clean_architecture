@@ -1,6 +1,14 @@
 plugins {
     alias(libs.plugins.example.android.library)
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.ktlint)
     id("androidx.navigation.safeargs.kotlin")
+}
+
+ktlint {
+    verbose.set(true)
+    android.set(true)
+    outputToConsole.set(true)
 }
 
 android {

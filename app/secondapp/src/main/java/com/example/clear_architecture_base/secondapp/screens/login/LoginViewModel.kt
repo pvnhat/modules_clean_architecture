@@ -19,7 +19,9 @@ class LoginViewModel @Inject constructor(
 
     fun login(username: String, password: String) {
         defaultExecute(
-            loginUseCase, LoginUseCase.Input(username, password), loginState
+            loginUseCase,
+            LoginUseCase.Input(username, password),
+            loginState
         )
     }
 }

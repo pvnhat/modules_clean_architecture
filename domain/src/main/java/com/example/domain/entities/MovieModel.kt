@@ -24,7 +24,7 @@ data class MovieModel(
     val title: String? = null,
     val video: Boolean? = null,
     val voteAverage: Double? = null,
-    val voteCount: Int? = null,
+    val voteCount: Int? = null
 ) : BaseModel() {
     fun getGenresStr(): String {
         return genres?.joinToString { it.name.orEmpty() }.orEmpty()

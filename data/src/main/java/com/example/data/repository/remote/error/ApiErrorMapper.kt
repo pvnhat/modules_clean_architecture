@@ -5,8 +5,8 @@ import com.example.data.repository.remote.api.response.ErrorResponse
 import com.example.domain.error.ErrorEntity
 import com.example.domain.error.ErrorMapper
 import com.google.gson.GsonBuilder
-import retrofit2.HttpException
 import java.io.IOException
+import retrofit2.HttpException
 
 @Suppress("ReturnCount")
 object ApiErrorMapper : ErrorMapper {

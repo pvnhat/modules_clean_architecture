@@ -8,9 +8,9 @@ import com.example.data.repository.remote.api.helper.ApiConfig.AUTHORIZATION
 import com.example.data.repository.remote.api.helper.ApiConfig.BEARER
 import com.example.data.repository.remote.api.helper.execute
 import com.example.data.repository.remote.api.request.TokenRequest
-import com.example.domain.error.ErrorEntity
 import com.example.data.repository.remote.error.ApiError
 import com.example.data.repository.remote.error.ExpiredTokenException
+import com.example.domain.error.ErrorEntity
 import kotlinx.coroutines.runBlocking
 import okhttp3.Authenticator
 import okhttp3.Request

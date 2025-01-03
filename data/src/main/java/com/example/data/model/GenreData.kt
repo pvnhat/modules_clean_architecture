@@ -10,5 +10,5 @@ data class GenreData(
 
     @SerializedName("name")
     @Expose
-    val name: String? = null,
-): BaseData()
+    val name: String? = null
+) : BaseData()

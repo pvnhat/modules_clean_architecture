@@ -1,6 +1,18 @@
 plugins {
     alias(libs.plugins.example.android.application)
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.ktlint)
     id("androidx.navigation.safeargs.kotlin")
+}
+
+ktlint {
+    verbose.set(true)
+    android.set(true)
+    outputToConsole.set(true)
+}
+
+buildscript {
+    apply(from = "$rootDir/team-props/git-hooks.gradle.kts")
 }
 
 android {
@@ -21,6 +33,9 @@ android {
     }
 
     buildTypes {
+        getByName("debug") {
+            enableAndroidTestCoverage = true
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -40,10 +55,8 @@ android {
             applicationIdSuffix = ".uat"
         }
         create("product") {
-
         }
     }
-
 }
 
 dependencies {
@@ -57,7 +70,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    
+
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.hilt.navigation.fragment)
