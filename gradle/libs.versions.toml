@@ -1,19 +1,22 @@
 [versions]
 agp = "8.7.2"
+coreTesting = "2.2.0"
 fragmentKtx = "1.8.5"
 glide = "4.12.0"
 hiltNavigationFragment = "1.2.0"
-kotlin = "2.0.10"
+kotlin = "1.9.20"
 coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.7.0"
 lifecycleLivedataKtx = "2.8.7"
+mockk = "1.12.0"
 navigationFragmentKtx = "2.8.5"
 securityCrypto = "1.1.0-alpha06"
 material = "1.12.0"
 activity = "1.9.3"
+kover = "0.9.0"
 
 ktlintPlugin = "12.1.1"
 detekt = "1.23.6"
@@ -45,6 +48,7 @@ hilt = "2.53.1"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 android-tools-build-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+androidx-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
 androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
 androidx-hilt-navigation-fragment = { module = "androidx.hilt:hilt-navigation-fragment", version.ref = "hiltNavigationFragment" }
 androidx-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
@@ -59,6 +63,9 @@ glide-recyclerview-integration = { module = "com.github.bumptech.glide:recyclerv
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-test-core  = { module = "androidx.test:core", version.ref = "androidxTestCore" }
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidxTestRunner" }
+
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
@@ -66,6 +73,7 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 #Paging
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 paging-runtime = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "paging" }
 
 # Dependency
@@ -103,7 +111,7 @@ example-android-library = { id = "example.android.library", version = "unspecifi
 example-android-test = { id = "example.android.test", version = "unspecified" }
 example-databinding = { id = "example.databinding", version = "unspecified" }
 example-dynamic = { id = "example.dynamic", version = "unspecified" }
-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlinx-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlintPlugin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

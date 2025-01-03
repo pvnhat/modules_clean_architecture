@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.example.android.application)
     alias(libs.plugins.detekt)
     alias(libs.plugins.ktlint)
+    alias(libs.plugins.kotlinx.kover)
     id("androidx.navigation.safeargs.kotlin")
 }
 
@@ -9,6 +10,34 @@ ktlint {
     verbose.set(true)
     android.set(true)
     outputToConsole.set(true)
+}
+
+kover {
+    reports {
+        // filters for all report types of all build variants
+        filters.excludes.androidGeneratedClasses()
+
+        variant("developDebug") {
+            // verification only for 'release' build variant
+            verify.rule {
+                minBound(50)
+            }
+
+            // filters for all report types only for 'release' build variant
+            filters.excludes {
+                androidGeneratedClasses()
+                classes(
+                    // excludes debug classes
+                    "*.DebugUtil"
+                )
+            }
+        }
+    }
+}
+
+tasks.withType<Test> {
+    // useJUnitPlatform() // Optional, depending on the testing framework you are using
+    finalizedBy("koverHtmlReport") // Generate the HTML report after tests run
 }
 
 buildscript {
@@ -82,6 +111,9 @@ dependencies {
     implementation(libs.kotlinx.coroutines.test)
 
     testImplementation(libs.junit)
+    testImplementation(libs.androidx.core.testing)
+    testImplementation(libs.androidx.test.core)
+    testImplementation(libs.mockk)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
