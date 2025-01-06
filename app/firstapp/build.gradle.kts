@@ -37,6 +37,9 @@ kover {
 
 tasks.withType<Test> {
     // useJUnitPlatform() // Optional, depending on the testing framework you are using
+    onlyIf {
+        name.contains("developDebug", ignoreCase = true)
+    }
     finalizedBy("koverHtmlReport") // Generate the HTML report after tests run
 }
 
@@ -52,8 +55,6 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildFeatures {
@@ -110,10 +111,10 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.test)
 
-    testImplementation(libs.junit)
     testImplementation(libs.androidx.core.testing)
     testImplementation(libs.androidx.test.core)
     testImplementation(libs.mockk)
+    testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }

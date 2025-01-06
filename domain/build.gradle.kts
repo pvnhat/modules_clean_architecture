@@ -19,7 +19,7 @@ kover {
         variant("developDebug") {
             // verification only for 'release' build variant
             verify.rule {
-                minBound(10)
+                minBound(50)
             }
 
             // filters for all report types only for 'release' build variant
@@ -35,8 +35,11 @@ kover {
 }
 
 tasks.withType<Test> {
+    onlyIf {
+        name.contains("developDebug", ignoreCase = true)
+    }
     // useJUnitPlatform() // Optional, depending on the testing framework you are using
-    finalizedBy("koverHtmlReport") // Generate the HTML report after tests run
+    finalizedBy("koverHtmlReport")
 }
 
 android {
@@ -53,8 +56,14 @@ android {
 
 dependencies {
     implementation(libs.paging.runtime)
+    implementation(libs.androidx.junit.ktx)
 
     testImplementation(libs.junit)
+    testImplementation(libs.androidx.core.testing)
+    testImplementation(libs.mockk)
+    implementation(libs.hilt.android.testing)
     androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.rules)
     androidTestImplementation(libs.androidx.espresso.core)
 }
