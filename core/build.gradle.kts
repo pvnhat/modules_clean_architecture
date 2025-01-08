@@ -11,6 +11,10 @@ ktlint {
     outputToConsole.set(true)
 }
 
+buildscript {
+    apply(from = "autodimension.gradle.kts")
+}
+
 android {
     namespace = "com.example.clear_architecture_base.core"
 
@@ -24,6 +28,13 @@ android {
         create("develop") { dimension = "default" }
         create("uat") { dimension = "default" }
         create("product") { dimension = "default" }
+    }
+}
+
+tasks {
+    clean {
+        dependsOn("createDimen")
+        mustRunAfter("createDimen")
     }
 }
 
