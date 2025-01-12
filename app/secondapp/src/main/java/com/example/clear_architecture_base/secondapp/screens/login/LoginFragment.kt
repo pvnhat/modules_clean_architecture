@@ -1,7 +1,5 @@
 package com.example.clear_architecture_base.secondapp.screens.login
 
-import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.viewModels
 import com.example.clear_architecture_base.ui.base.BaseFragment
 import com.example.clear_architecture_base.utils.extensions.findNavControllerSafely

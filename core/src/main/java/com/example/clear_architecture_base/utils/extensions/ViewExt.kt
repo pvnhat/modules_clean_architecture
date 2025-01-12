@@ -29,5 +29,5 @@ fun goneViews(vararg views: View) {
 }
 
 fun TextView.setTopIcon(@DrawableRes icon: Int) {
-    setCompoundDrawablesWithIntrinsicBounds(0, icon, 0, 0);
+    setCompoundDrawablesWithIntrinsicBounds(0, icon, 0, 0)
 }

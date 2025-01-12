@@ -6,8 +6,8 @@ import com.example.data.repository.remote.api.AuthApi
 import com.example.data.repository.remote.api.NoneAuthApi
 import com.example.data.repository.remote.api.helper.execute
 import com.example.data.repository.remote.paging.CommonPager
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
+import kotlinx.coroutines.flow.Flow
 
 class MovieRemoteDataSource @Inject constructor(
     private val authApi: AuthApi,

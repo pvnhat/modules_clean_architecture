@@ -6,13 +6,13 @@ import com.example.data.mapper.MovieMapper
 import com.example.data.repository.remote.MovieRemoteDataSource
 import com.example.domain.entities.MovieModel
 import com.example.domain.repository.MovieRepository
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
 
 class MovieRepositoryImpl @Inject constructor(
     private val remoteDataSource: MovieRemoteDataSource,
-    private val movieMapper: MovieMapper,
+    private val movieMapper: MovieMapper
 ) : MovieRepository {
     override fun getPopularMovies(): Flow<PagingData<MovieModel>> {
         return remoteDataSource.getPopularMovies().map { pager ->

@@ -98,8 +98,8 @@ data class MovieData(
 
     @SerializedName("vote_count")
     @Expose
-    val voteCount: Int? = null,
-) : BaseData(){
+    val voteCount: Int? = null
+) : BaseData() {
     val posterUrl: String
         get() = "https://image.tmdb.org/t/p/w500/$posterPath"
 
@@ -117,4 +117,3 @@ data class MovieData(
         private const val RATING_FORMAT = "%.1f/10 IMDB"
     }
 }
-

@@ -1,7 +1,5 @@
 package com.example.clear_architecture_base.firstapp.screens.login
 
-import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.viewModels
 import com.example.clear_architecture_base.app.firstapp.R
 import com.example.clear_architecture_base.app.firstapp.databinding.FragmentLoginBinding

@@ -20,7 +20,11 @@ class MovieDetailViewModel @Inject constructor(
     }
 
     fun getMovieDetail(id: Int) {
-        defaultExecute(getMovieDetailUseCase, GetMovieDetailUseCase.Input(id),getMovieDetailState) {
+        defaultExecute(
+            getMovieDetailUseCase,
+            GetMovieDetailUseCase.Input(id),
+            getMovieDetailState
+        ) {
             getMovieDetailState.value = ProcessState.success(it)
             movie.value = it
         }

@@ -1,6 +1,50 @@
 plugins {
     alias(libs.plugins.example.android.application)
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.ktlint)
+    alias(libs.plugins.kotlinx.kover)
     id("androidx.navigation.safeargs.kotlin")
+}
+
+ktlint {
+    verbose.set(true)
+    android.set(true)
+    outputToConsole.set(true)
+}
+
+kover {
+    reports {
+        // filters for all report types of all build variants
+        filters.excludes.androidGeneratedClasses()
+
+        variant("developDebug") {
+            // verification only for 'release' build variant
+            verify.rule {
+                minBound(50)
+            }
+
+            // filters for all report types only for 'release' build variant
+            filters.excludes {
+                androidGeneratedClasses()
+                classes(
+                    // excludes debug classes
+                    "*.DebugUtil"
+                )
+            }
+        }
+    }
+}
+
+tasks.withType<Test> {
+    // useJUnitPlatform() // Optional, depending on the testing framework you are using
+    onlyIf {
+        name.contains("developDebug", ignoreCase = true)
+    }
+    finalizedBy("koverHtmlReport") // Generate the HTML report after tests run
+}
+
+buildscript {
+    apply(from = "$rootDir/team-props/git-hooks.gradle.kts")
 }
 
 android {
@@ -11,8 +55,6 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildFeatures {
@@ -21,6 +63,9 @@ android {
     }
 
     buildTypes {
+        getByName("debug") {
+            enableAndroidTestCoverage = true
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -40,7 +85,6 @@ android {
             applicationIdSuffix = ".uat"
         }
         create("product") {
-
         }
     }
 }
@@ -67,6 +111,9 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.test)
 
+    testImplementation(libs.androidx.core.testing)
+    testImplementation(libs.androidx.test.core)
+    testImplementation(libs.mockk)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

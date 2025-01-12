@@ -17,8 +17,7 @@ plugins {
     alias(libs.plugins.example.android.library) apply false
     alias(libs.plugins.example.android.test) apply false
     alias(libs.plugins.example.dynamic) apply false
-    alias(libs.plugins.android.library) apply false
-    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlinx.kover) apply false
 
     alias(libs.plugins.detekt)
     alias(libs.plugins.ktlint)
@@ -29,11 +28,13 @@ detekt {
 
     source.setFrom(
         files(
-            "app/src/main/java"
+            "app/firstapp/src/main/java",
+            "app/secondapp/src/main/java",
+            "core/src/main/java"
         )
     )
     parallel = false
-    config.setFrom(files("detekt-config.yml"))
+    config.setFrom(files("$rootDir/detekt-config.yml"))
     buildUponDefaultConfig = false
     disableDefaultRuleSets = false
 

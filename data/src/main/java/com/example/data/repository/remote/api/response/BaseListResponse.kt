@@ -12,5 +12,5 @@ data class BaseListResponse<T>(
     var page: Int? = null,
     @Expose
     @SerializedName("total_pages")
-    var totalPages: Int? = null,
+    var totalPages: Int? = null
 )

@@ -1,6 +1,18 @@
 plugins {
     alias(libs.plugins.example.android.library)
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.ktlint)
     id("androidx.navigation.safeargs.kotlin")
+}
+
+ktlint {
+    verbose.set(true)
+    android.set(true)
+    outputToConsole.set(true)
+}
+
+buildscript {
+    apply(from = "autodimension.gradle.kts")
 }
 
 android {
@@ -16,6 +28,13 @@ android {
         create("develop") { dimension = "default" }
         create("uat") { dimension = "default" }
         create("product") { dimension = "default" }
+    }
+}
+
+tasks {
+    clean {
+        dependsOn("createDimen")
+        mustRunAfter("createDimen")
     }
 }
 

@@ -9,7 +9,7 @@ echo "Checking your commit message"
  ^, $: start, end
 comment
 
-commit_regex='^\[\b(?i)(add|modify|fix|revert|hotfix)\b\]\s.+$'
+commit_regex='^(feat|fix|build|chore|test|ci|refactor|docs|revert)(!?)\: .+$'
 error_msg="Aborting commit. Your commit message does not follow the commit message rule"
 
 if ! grep -iqE "$commit_regex" "$1"; then

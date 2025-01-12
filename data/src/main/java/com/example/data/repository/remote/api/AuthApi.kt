@@ -8,9 +8,7 @@ import retrofit2.http.Query
 
 interface AuthApi {
     @GET("/3/movie/popular")
-    suspend fun getPopularMovies(
-        @Query("page") page: Int,
-    ): BaseListResponse<MovieData>
+    suspend fun getPopularMovies(@Query("page") page: Int): BaseListResponse<MovieData>
 
     @GET("/3/movie/{id}")
     suspend fun getMovieDetail(@Path("id") movieId: Int): MovieData

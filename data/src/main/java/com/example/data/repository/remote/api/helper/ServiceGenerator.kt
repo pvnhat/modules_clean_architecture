@@ -2,13 +2,13 @@ package com.example.data.repository.remote.api.helper
 
 import com.example.clear_architecture_base.data.BuildConfig
 import com.google.gson.Gson
+import java.util.concurrent.TimeUnit
 import okhttp3.Authenticator
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
 
 object ServiceGenerator {
     private const val CONNECT_TIMEOUT = 20000L

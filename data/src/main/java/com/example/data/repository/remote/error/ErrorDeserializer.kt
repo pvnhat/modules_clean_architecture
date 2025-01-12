@@ -1,7 +1,7 @@
+import com.example.data.repository.remote.api.response.ErrorResponse
 import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer
 import com.google.gson.JsonElement
-import com.example.data.repository.remote.api.response.ErrorResponse
 import java.lang.reflect.Type
 
 class ErrorDeserializer : JsonDeserializer<Any?> {

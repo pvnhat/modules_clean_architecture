@@ -1,9 +1,11 @@
 package com.example.clear_architecture_base.ui.base
 
-import androidx.databinding.BaseObservable
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.domain.interactor.input.BaseInput
-import com.example.domain.interactor.output.OutputObserver
 import com.example.domain.usecase.base.AsyncUseCase
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
@@ -35,11 +37,11 @@ abstract class BaseViewModel : ViewModel() {
                 if (isRefreshing.value == true) {
                     loading.value = false
                     isRefreshing.value = (isRefreshing.value ?: false) &&
-                            liveDatas.all { it.value?.isFinish ?: true }.not()
+                        liveDatas.all { it.value?.isFinish ?: true }.not()
                 } else {
                     val processing = liveDatas.any { it.value?.isLoading == true } &&
-                            !hasOtherLoading() &&
-                            !(isRefreshing.value ?: false)
+                        !hasOtherLoading() &&
+                        !(isRefreshing.value ?: false)
                     loading.value = processing
                     if (!processing) {
                         isRefreshing.value = false

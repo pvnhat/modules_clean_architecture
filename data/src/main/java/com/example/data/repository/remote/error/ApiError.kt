@@ -1,7 +1,7 @@
 package com.example.data.repository.remote.error
 
-import com.example.domain.error.ErrorEntity
 import com.example.data.repository.remote.api.response.ErrorResponse
+import com.example.domain.error.ErrorEntity
 
 sealed class ApiError : ErrorEntity() {
     data class HttpError(

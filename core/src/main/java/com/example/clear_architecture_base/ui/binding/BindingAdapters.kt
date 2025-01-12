@@ -1,6 +1,5 @@
 package com.example.clear_architecture_base.ui.binding
 
-import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.view.View
@@ -21,7 +20,7 @@ object BindingAdapters {
         if (condition) view.visible() else view.gone()
     }
 
-    @SuppressLint("CheckResult")
+    @Suppress("CheckResult", "LongParameterList")
     @JvmStatic
     @BindingAdapter(
         value = ["loadUrl", "uri", "placeholder", "isCircle", "isCenterCrop", "radiusValue"],
@@ -34,7 +33,7 @@ object BindingAdapters {
         placeholder: Drawable? = null,
         isCircle: Boolean = false,
         isCenterCrop: Boolean = false,
-        radiusValue: Float? = null,
+        radiusValue: Float? = null
     ) {
         val requestBuilder =
             if (uri != null) {

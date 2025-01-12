@@ -2,7 +2,6 @@ package com.example.data.repository.remote.api.helper
 
 import com.example.clear_architecture_base.data.BuildConfig
 
-
 object ApiConfig {
     const val AUTHORIZATION = "Authorization"
     const val ANDROID_PLATFORM = "android"

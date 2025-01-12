@@ -1,3 +1,4 @@
+gradle.startParameter.excludedTaskNames.addAll(listOf(":build-logic:convention:testClasses"))
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -28,4 +29,3 @@ include(":data")
 include(":domain")
 include(":shared")
 include(":libs")
-
